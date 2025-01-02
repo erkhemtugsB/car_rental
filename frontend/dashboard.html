@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Dashboard</h1>
+        <p>You have successfully authenticated.</p>
+    </div>
+    <script>
+        // Check for auth token
+        if (!localStorage.getItem('authToken')) {
+            window.location.href = 'index.html'; // Redirect to login page if token is not present
+        }
+
+        async function fetchCars() {
+            const response = await fetch('http://localhost:3000/cars');
+            const cars = await response.json();
+            const container = document.querySelector('.container');
+            cars.forEach(car => {
+                const carTile = document.createElement('div');
+                carTile.className = 'car-tile';
+                carTile.innerHTML = `
+                    <img src="${car.image}" alt="${car.name}" id="car-image-${car.id}">
+                    <input type="file" id="car-image-input-${car.id}" style="display:none;" onchange="previewImage(${car.id})">
+                    <input type="text" id="car-name-${car.id}" value="${car.name}" readonly>
+                    <input type="text" id="car-description-${car.id}" value="${car.description}" readonly>
+                    <input type="number" id="car-year-${car.id}" value="${car.year}" readonly>
+                    <input type="text" id="car-price-${car.id}" value="${car.price}" readonly>
+                    <button onclick="editCar(${car.id})">Edit</button>
+                    <button onclick="saveCar(${car.id})" style="display:none;">Save</button>
+                `;
+                container.appendChild(carTile);
+            });
+        }
+
+        function editCar(carId) {
+            document.getElementById(`car-name-${carId}`).removeAttribute('readonly');
+            document.getElementById(`car-description-${carId}`).removeAttribute('readonly');
+            document.getElementById(`car-year-${carId}`).removeAttribute('readonly');
+            document.getElementById(`car-price-${carId}`).removeAttribute('readonly');
+            document.getElementById(`car-image-input-${carId}`).style.display = 'block';
+            document.querySelector(`button[onclick="editCar(${carId})"]`).style.display = 'none';
+            document.querySelector(`button[onclick="saveCar(${carId})"]`).style.display = 'inline-block';
+        }
+
+        function previewImage(carId) {
+            const carImageInput = document.getElementById(`car-image-input-${carId}`);
+            const carImage = document.getElementById(`car-image-${carId}`);
+            const file = carImageInput.files[0];
+            const reader = new FileReader();
+
+            reader.onloadend = function() {
+                carImage.src = reader.result;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        async function saveCar(carId) {
+            const carName = document.getElementById(`car-name-${carId}`).value;
+            const carDescription = document.getElementById(`car-description-${carId}`).value;
+            const carYear = document.getElementById(`car-year-${carId}`).value;
+            const carPrice = document.getElementById(`car-price-${carId}`).value;
+            const carImageInput = document.getElementById(`car-image-input-${carId}`);
+
+            const formData = new FormData();
+            formData.append('name', carName);
+            formData.append('description', carDescription);
+            formData.append('year', carYear);
+            formData.append('price', carPrice);
+
+            if (carImageInput.files.length > 0) {
+                const file = carImageInput.files[0];
+                formData.append('image', file);
+            }
+
+            const response = await fetch(`http://localhost:3000/cars/${carId}`, {
+                method: 'PUT',
+                body: formData
+            });
+
+            const updatedCar = await response.json();
+            document.getElementById(`car-name-${carId}`).setAttribute('readonly', true);
+            document.getElementById(`car-description-${carId}`).setAttribute('readonly', true);
+            document.getElementById(`car-year-${carId}`).setAttribute('readonly', true);
+            document.getElementById(`car-price-${carId}`).setAttribute('readonly', true);
+            document.getElementById(`car-image-${carId}`).src = updatedCar.image;
+            document.getElementById(`car-image-input-${carId}`).style.display = 'none';
+            document.querySelector(`button[onclick="editCar(${carId})"]`).style.display = 'inline-block';
+            document.querySelector(`button[onclick="saveCar(${carId})"]`).style.display = 'none';
+        }
+
+        window.onload = fetchCars;
+    </script>
+</body>
+</html>
