@@ -1,12 +1,5 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    background-color: #f0f0f0;
 }
 
 .container {
@@ -87,4 +80,17 @@ h1 {
     font-weight: bold;
     color: #333;
     margin-bottom: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .car-tiles {
+        grid-template-columns: repeat(2, 1fr); /* 2 tiles per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .car-tiles {
+        grid-template-columns: 1fr; /* 1 tile per row */
+    }
 }
