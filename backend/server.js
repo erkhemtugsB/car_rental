@@ -89,6 +89,30 @@ app.put('/cars/:id', upload.single('image'), (req, res) => {
     }
 });
 
+// Endpoint to handle car deletion
+app.delete('/cars/:id', (req, res) => {
+    const carId = parseInt(req.params.id, 10);
+
+    fs.readFile('cars.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading cars.json:', err);
+            return res.status(500).send('Server Error');
+        }
+
+        let cars = JSON.parse(data);
+        cars = cars.filter(car => car.id !== carId);
+
+        fs.writeFile('cars.json', JSON.stringify(cars, null, 2), (err) => {
+            if (err) {
+                console.error('Error writing to cars.json:', err);
+                return res.status(500).send('Server Error');
+            }
+
+            res.status(200).send('Car deleted successfully');
+        });
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

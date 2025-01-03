@@ -45,7 +45,7 @@ async function fetchCars() {
                         </p>
                         <div>
                             <button class="btn edit-button"><i class="fas fa-edit"></i></button>
-                            <button class="btn delete-button"><i class="fas fa-trash-alt"></i></button>
+                            <button class="btn delete-button" data-id="${car.id}"><i class="fas fa-trash-alt"></i></button>
                         </div>
                     </div>
                 </div>
@@ -152,6 +152,30 @@ async function fetchCars() {
     document.getElementById('close-add-car').addEventListener('click', () => {
         const addCarFormContainer = document.querySelector('.add-car-form-container');
         addCarFormContainer.style.display = 'none';
+    });
+
+    // Add event listeners to delete buttons
+    document.querySelectorAll('.delete-button').forEach(button => {
+        button.addEventListener('click', async (event) => {
+            const carId = event.target.closest('button').getAttribute('data-id');
+            try {
+                const response = await fetch(`http://localhost:3000/cars/${carId}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    alert('Car deleted successfully');
+                    fetchCars(); // Refresh the car list
+                } else {
+                    const errorText = await response.text();
+                    console.error('Error response:', errorText);
+                    alert('Failed to delete car: ' + errorText);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to delete car');
+            }
+        });
     });
 
     // Handle the form submission for adding a new car

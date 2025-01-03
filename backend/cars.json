@@ -16,9 +16,9 @@
     "make": "BMW",
     "name": "3 Series",
     "year": "2019",
-    "capacity": 4,
+    "capacity": "5",
     "fuel": "Gasoline",
-    "consumption": 20,
+    "consumption": "20",
     "transmission": "Automatic",
     "price": "350",
     "image": "./assets/images/car-2.jpg"
