@@ -5,7 +5,7 @@
     "description": "4 People, Hybrid, 6.1km / 1-litre, Automatic",
     "year": "2022",
     "image": "/backend/uploads/car-1.avif",
-    "price": "$440 / month"
+    "price": "440"
   },
   {
     "id": 2,
@@ -13,15 +13,15 @@
     "description": "4 People, Gasoline, 8.2km / 1-litre, Automatic",
     "year": "2019",
     "image": "./assets/images/car-2.jpg",
-    "price": "$350 / month"
+    "price": "350"
   },
   {
     "id": 3,
     "name": "Volkswagen T-Cross",
     "description": "4 People, Gasoline, 5.3km / 1-litre, Automatic",
-    "year": 2020,
+    "year": "2020",
     "image": "./assets/images/car-3.jpg",
-    "price": "$400 / month"
+    "price": "400"
   },
   {
     "id": 4,
@@ -29,22 +29,22 @@
     "description": "4 People, Gasoline, 7.7km / 1-litre, Automatic",
     "year": "2021",
     "image": "./assets/images/car-4.jpg",
-    "price": "$620 / month"
+    "price": "620"
   },
   {
     "id": 5,
     "name": "BMW 4 Series GTI",
     "description": "4 People, Gasoline, 7.6km / 1-litre, Automatic",
-    "year": 2021,
+    "year": "2021",
     "image": "./assets/images/car-5.jpg",
-    "price": "$530 / month"
+    "price": "530"
   },
   {
     "id": 6,
     "name": "BMW 4 Series",
     "description": "4 People, Gasoline, 7.2km / 1-litre, Automatic",
-    "year": 2019,
+    "year": "2019",
     "image": "./assets/images/car-6.jpg",
-    "price": "$490 / month"
+    "price": "490"
   }
 ]

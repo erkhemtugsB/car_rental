@@ -16,100 +16,42 @@
         <button class="return-button" onclick="window.location.href='index.html'">
             <i class="fas fa-arrow-left"></i> Return Back to Website
         </button>
+        <button id="addCarButton">Add a new Car</button>
         <div class="car-tiles"></div> <!-- Container for car tiles -->
+        <div class="add-car-form-container" style="display: none;">
+            <form id="addCarForm" class="add-car-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Name" required>
+                
+                <label for="description">Description</label>
+                <input type="text" id="description" placeholder="Description" required>
+                
+                <label for="year">Year</label>
+                <input type="number" id="year" placeholder="Year" required>
+                
+                <label for="price">Price</label>
+                <input type="text" id="price" placeholder="Price" required>
+                
+                <label for="passengers">Number of Passengers</label>
+                <input type="number" id="passengers" placeholder="Number of Passengers" required>
+                
+                <label for="gasType">Gas Type</label>
+                <input type="text" id="gasType" placeholder="Gas Type" required>
+                
+                <label for="fuelConsumption">Fuel Consumption</label>
+                <input type="text" id="fuelConsumption" placeholder="Fuel Consumption" required>
+                
+                <label for="transmission">Transmission (Automatic/Manual)</label>
+                <input type="text" id="transmission" placeholder="Transmission (Automatic/Manual)" required>
+                
+                <label for="image">Image</label>
+                <input type="file" id="image" class="image-input" required>
+                
+                <button type="submit">Add Car</button>
+            </form>
+        </div>
     </div>
-    <script>
-        // Check for auth token
-        if (!localStorage.getItem('authToken')) {
-            window.location.href = 'index.html'; // Redirect to login page if token is not present
-        }
-
-        async function fetchCars() {
-            const response = await fetch('http://localhost:3000/cars');
-            const cars = await response.json();
-            const carTilesContainer = document.querySelector('.car-tiles');
-            cars.forEach(car => {
-                const carTile = document.createElement('div');
-                carTile.classList.add('car-tile');
-                carTile.innerHTML = `
-                    <img src="${car.image}" alt="${car.name}">
-                    <h2 class="name">${car.name}</h2>
-                    <p class="description">${car.description}</p>
-                    <p class="year">${car.year}</p>
-                    <p class="price">${car.price}</p>
-                    <input type="file" class="image-input" style="display:none;">
-                    <button class="edit-button">Edit</button>
-                    <button class="save-button" style="display:none;">Save</button>
-                `;
-                carTilesContainer.appendChild(carTile);
-
-                const editButton = carTile.querySelector('.edit-button');
-                const saveButton = carTile.querySelector('.save-button');
-                const imageInput = carTile.querySelector('.image-input');
-
-                editButton.addEventListener('click', () => {
-                    carTile.querySelectorAll('p, h2').forEach(element => {
-                        const input = document.createElement('input');
-                        input.value = element.textContent;
-                        input.className = element.className;
-                        element.replaceWith(input);
-                    });
-                    imageInput.style.display = 'block';
-                    editButton.style.display = 'none';
-                    saveButton.style.display = 'inline-block';
-                });
-
-                saveButton.addEventListener('click', async () => {
-                    const inputs = carTile.querySelectorAll('input');
-                    const updatedCar = {
-                        name: inputs[0].value,
-                        description: inputs[1].value,
-                        year: inputs[2].value,
-                        price: inputs[3].value
-                    };
-
-                    const formData = new FormData();
-                    formData.append('name', updatedCar.name);
-                    formData.append('description', updatedCar.description);
-                    formData.append('year', updatedCar.year);
-                    formData.append('price', updatedCar.price);
-                    if (imageInput.files[0]) {
-                        formData.append('image', imageInput.files[0]);
-                    }
-
-                    const response = await fetch(`http://localhost:3000/cars/${car.id}`, {
-                        method: 'PUT',
-                        body: formData
-                    });
-
-                    if (response.ok) {
-                        const updatedCarData = await response.json();
-                        car.name = updatedCarData.name;
-                        car.description = updatedCarData.description;
-                        car.year = updatedCarData.year;
-                        car.price = updatedCarData.price;
-                        car.image = updatedCarData.image;
-
-                        inputs.forEach((input, index) => {
-                            const element = document.createElement(index === 0 ? 'h2' : 'p');
-                            element.textContent = input.value;
-                            element.className = input.className;
-                            input.replaceWith(element);
-                        });
-
-                        carTile.querySelector('img').src = car.image;
-                        imageInput.style.display = 'none';
-                        editButton.style.display = 'inline-block';
-                        saveButton.style.display = 'none';
-                    } else {
-                        alert('Failed to save changes');
-                    }
-                });
-            });
-        }
-
-        fetchCars();
-    </script>
+    <script src="dashboard.js"></script>
 </body>
 
 </html>

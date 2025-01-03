@@ -3,15 +3,15 @@ body {
 }
 
 .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
     text-align: center;
     background: white;
-    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 80%;
-    max-width: 1200px;
     margin-top: 20px;
-    margin: 0 auto;
 }
 
 .return-button {
@@ -46,13 +46,13 @@ h1 {
 }
 
 .car-tile {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    margin: 10px 0;
-    text-align: center;
-    background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fff;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin: 10px 0;
 }
 
 .car-tile h2 {
@@ -65,12 +65,12 @@ h1 {
 }
 
 .car-tile img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
     display: block;
     margin: 0 auto;
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
 }
 
 .car-tile input {
@@ -102,6 +102,39 @@ h1 {
     font-weight: bold;
     color: #333;
     margin-bottom: 10px;
+}
+
+.add-car-form-container {
+    margin-top: 20px;
+}
+
+.add-car-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-car-form label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.add-car-form input,
+.add-car-form button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.add-car-form button {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+.add-car-form button:hover {
+    background-color: #0056b3;
 }
 
 /* Responsive design */

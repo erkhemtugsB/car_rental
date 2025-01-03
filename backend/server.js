@@ -30,6 +30,30 @@ app.get('/cars', (req, res) => {
     res.json(cars);
 });
 
+// Add a new car
+app.post('/cars', upload.single('image'), (req, res) => {
+    const cars = loadCars();
+    const newCar = {
+        id: cars.length ? cars[cars.length - 1].id + 1 : 1,
+        name: req.body.name,
+        description: req.body.description,
+        year: req.body.year,
+        price: req.body.price,
+        image: ''
+    };
+
+    if (req.file) {
+        const ext = path.extname(req.file.originalname);
+        const newImagePath = path.join('uploads', `car-${newCar.id}${ext}`);
+        fs.renameSync(req.file.path, path.join(__dirname, newImagePath));
+        newCar.image = `/backend/uploads/car-${newCar.id}${ext}`;
+    }
+
+    cars.push(newCar);
+    saveCars(cars);
+    res.status(201).json(newCar);
+});
+
 // Update a car
 app.put('/cars/:id', upload.single('image'), (req, res) => {
     const cars = loadCars();
@@ -46,10 +70,8 @@ app.put('/cars/:id', upload.single('image'), (req, res) => {
         if (req.file) {
             const ext = path.extname(req.file.originalname);
             const newImagePath = path.join('uploads', `car-${carId}${ext}`);
-
-            // Move the new image file to the uploads directory
             fs.renameSync(req.file.path, path.join(__dirname, newImagePath));
-            car.image = `/backend/uploads/car-${carId}${ext}`; // Relative path for frontend
+            car.image = `/uploads/car-${carId}${ext}`;
         }
 
         saveCars(cars);
