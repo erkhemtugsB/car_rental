@@ -138,7 +138,12 @@ async function fetchCars() {
 
     // Add event listener to the "Add a new Car" button
     document.getElementById('addCarButton').addEventListener('click', () => {
-        document.querySelector('.add-car-form-container').style.display = 'block';
+        const addCarFormContainer = document.querySelector('.add-car-form-container');
+        if (addCarFormContainer.style.display === 'block') {
+            addCarFormContainer.style.display = 'none';
+        } else {
+            addCarFormContainer.style.display = 'block';
+        }
     });
 
     // Handle the form submission for adding a new car
