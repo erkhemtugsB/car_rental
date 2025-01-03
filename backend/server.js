@@ -79,7 +79,7 @@ app.put('/cars/:id', upload.single('image'), (req, res) => {
             const ext = path.extname(req.file.originalname);
             const newImagePath = path.join('uploads', `car-${carId}${ext}`);
             fs.renameSync(req.file.path, path.join(__dirname, newImagePath));
-            car.image = `/uploads/car-${carId}${ext}`;
+            car.image = `/backend/uploads/car-${carId}${ext}`;
         }
 
         saveCars(cars);
