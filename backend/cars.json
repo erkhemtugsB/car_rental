@@ -58,5 +58,17 @@
     "transmission": "Automatic",
     "price": "500",
     "image": "./assets/images/car-5.jpg"
+  },
+  {
+    "id": 6,
+    "make": "Toyota",
+    "name": "Land Cruiser 200",
+    "year": "2020",
+    "capacity": "7",
+    "fuel": "Gasoline",
+    "consumption": "12",
+    "transmission": "Automatic",
+    "price": "550",
+    "image": "/backend/uploads/car-6.jpeg"
   }
 ]
