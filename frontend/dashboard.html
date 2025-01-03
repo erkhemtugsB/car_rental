@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Welcome to the Dealer Dashboard</h1>
         <p>You have successfully logged in.</p>
+        <button class="return-button" onclick="window.location.href='index.html'">
+            <i class="fas fa-arrow-left"></i> Return Back to Website
+        </button>
         <div class="car-tiles"></div> <!-- Container for car tiles -->
     </div>
     <script>
@@ -27,7 +33,7 @@
                 carTile.classList.add('car-tile');
                 carTile.innerHTML = `
                     <img src="${car.image}" alt="${car.name}">
-                    <h2>${car.name}</h2>
+                    <h2 class="name">${car.name}</h2>
                     <p class="description">${car.description}</p>
                     <p class="year">${car.year}</p>
                     <p class="price">${car.price}</p>
@@ -42,11 +48,11 @@
                 const imageInput = carTile.querySelector('.image-input');
 
                 editButton.addEventListener('click', () => {
-                    carTile.querySelectorAll('p').forEach(p => {
+                    carTile.querySelectorAll('p, h2').forEach(element => {
                         const input = document.createElement('input');
-                        input.value = p.textContent;
-                        input.className = p.className;
-                        p.replaceWith(input);
+                        input.value = element.textContent;
+                        input.className = element.className;
+                        element.replaceWith(input);
                     });
                     imageInput.style.display = 'block';
                     editButton.style.display = 'none';
@@ -56,10 +62,10 @@
                 saveButton.addEventListener('click', async () => {
                     const inputs = carTile.querySelectorAll('input');
                     const updatedCar = {
-                        name: carTile.querySelector('h2').textContent,
-                        description: inputs[0].value,
-                        year: inputs[1].value,
-                        price: inputs[2].value
+                        name: inputs[0].value,
+                        description: inputs[1].value,
+                        year: inputs[2].value,
+                        price: inputs[3].value
                     };
 
                     const formData = new FormData();
@@ -85,10 +91,10 @@
                         car.image = updatedCarData.image;
 
                         inputs.forEach((input, index) => {
-                            const p = document.createElement('p');
-                            p.textContent = input.value;
-                            p.className = input.className;
-                            input.replaceWith(p);
+                            const element = document.createElement(index === 0 ? 'h2' : 'p');
+                            element.textContent = input.value;
+                            element.className = input.className;
+                            input.replaceWith(element);
                         });
 
                         carTile.querySelector('img').src = car.image;
@@ -105,4 +111,5 @@
         fetchCars();
     </script>
 </body>
+
 </html>

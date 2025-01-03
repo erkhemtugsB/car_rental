@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Toyota RAV4",
     "description": "4 People, Hybrid, 6.1km / 1-litre, Automatic",
-    "year": "2021",
+    "year": "2022",
     "image": "/backend/uploads/car-1.avif",
     "price": "$440 / month"
   },
