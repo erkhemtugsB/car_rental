@@ -52,9 +52,9 @@
     "make": "Ford",
     "name": "Mustang",
     "year": "2020",
-    "capacity": 4,
+    "capacity": "4",
     "fuel": "Gasoline",
-    "consumption": 15,
+    "consumption": "15",
     "transmission": "Automatic",
     "price": "500",
     "image": "./assets/images/car-5.jpg"

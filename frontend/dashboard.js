@@ -14,31 +14,31 @@ async function fetchCars() {
         carTile.innerHTML = `
             <div class="featured-car-card">
                 <figure class="card-banner">
-                    <img src="${car.image}" alt="${car.make} ${car.name} ${car.year}" loading="lazy" width="440" height="300" class="w-100">
+                    <img src="${car.image}" alt="${car.make} ${car.name} ${car.year}" loading="lazy" width="150" height="100" class="w-100">
                 </figure>
                 <div class="card-content">
                     <div class="card-title-wrapper">
                         <h3 class="h3 card-title">${car.make} ${car.name}</h3>
                         <data class="year" value="${car.year}">${car.year}</data>
                     </div>
-                    <ul class="card-list">
-                        <li class="card-list-item">
+                    <div class="card-details">
+                        <div class="card-detail-item">
                             <ion-icon name="people-outline"></ion-icon>
                             <span class="card-item-text">${car.capacity} Passengers</span>
-                        </li>
-                        <li class="card-list-item">
+                        </div>
+                        <div class="card-detail-item">
                             <ion-icon name="flash-outline"></ion-icon>
                             <span class="card-item-text">${car.fuel}</span>
-                        </li>
-                        <li class="card-list-item">
+                        </div>
+                        <div class="card-detail-item">
                             <ion-icon name="speedometer-outline"></ion-icon>
                             <span class="card-item-text">${car.consumption} MPG</span>
-                        </li>
-                        <li class="card-list-item">
+                        </div>
+                        <div class="card-detail-item">
                             <ion-icon name="hardware-chip-outline"></ion-icon>
                             <span class="card-item-text">${car.transmission}</span>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                     <div class="card-price-wrapper">
                         <p class="card-price">
                             <strong>$${car.price}</strong> / month
