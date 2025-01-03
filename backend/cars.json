@@ -70,5 +70,17 @@
     "transmission": "Automatic",
     "price": "550",
     "image": "/backend/uploads/car-6.jpeg"
+  },
+  {
+    "id": 7,
+    "make": "Lexus",
+    "name": "Lx 570",
+    "year": "2021",
+    "capacity": "7",
+    "fuel": "Gasoline",
+    "consumption": "12",
+    "transmission": "Automatic",
+    "price": "700",
+    "image": "/backend/uploads/car-7.avif"
   }
 ]
