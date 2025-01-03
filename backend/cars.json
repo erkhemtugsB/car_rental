@@ -1,50 +1,62 @@
 [
   {
     "id": 1,
-    "name": "Toyota RAV4",
-    "description": "4 People, Hybrid, 6.1km / 1-litre, Automatic",
+    "make": "Toyota",
+    "name": "RAV4",    
     "year": "2022",
-    "image": "/backend/uploads/car-1.avif",
-    "price": "440"
+    "capacity": 4,
+    "fuel": "Hybrid",
+    "consumption": 30,
+    "transmission": "Automatic",
+    "price": "440",
+    "image": "/backend/uploads/car-1.avif"
   },
   {
     "id": 2,
-    "name": "BMW 3 Series",
-    "description": "4 People, Gasoline, 8.2km / 1-litre, Automatic",
+    "make": "BMW",
+    "name": "3 Series",
     "year": "2019",
-    "image": "./assets/images/car-2.jpg",
-    "price": "350"
+    "capacity": 4,
+    "fuel": "Gasoline",
+    "consumption": 20,
+    "transmission": "Automatic",
+    "price": "350",
+    "image": "./assets/images/car-2.jpg"
   },
   {
     "id": 3,
-    "name": "Volkswagen T-Cross",
-    "description": "4 People, Gasoline, 5.3km / 1-litre, Automatic",
+    "make": "Volkswagen",
+    "name": "T-Cross",
     "year": "2020",
-    "image": "./assets/images/car-3.jpg",
-    "price": "400"
+    "capacity": 4,
+    "fuel": "Gasoline",
+    "consumption": 24,
+    "transmission": "Automatic",
+    "price": "300",
+    "image": "./assets/images/car-3.jpg"
   },
   {
     "id": 4,
-    "name": "Cadillac Escalade",
-    "description": "4 People, Gasoline, 7.7km / 1-litre, Automatic",
-    "year": "2021",
-    "image": "./assets/images/car-4.jpg",
-    "price": "620"
+    "make": "Cadillac",
+    "name": "Escalade",
+    "year": "2020",
+    "capacity": 7,
+    "fuel": "Gasoline",
+    "consumption": 15,
+    "transmission": "Manual",
+    "price": "400",
+    "image": "./assets/images/car-4.jpg"
   },
   {
     "id": 5,
-    "name": "BMW 4 Series GTI",
-    "description": "4 People, Gasoline, 7.6km / 1-litre, Automatic",
-    "year": "2021",
-    "image": "./assets/images/car-5.jpg",
-    "price": "530"
-  },
-  {
-    "id": 6,
-    "name": "BMW 4 Series",
-    "description": "4 People, Gasoline, 7.2km / 1-litre, Automatic",
-    "year": "2019",
-    "image": "./assets/images/car-6.jpg",
-    "price": "490"
+    "make": "Ford",
+    "name": "Mustang",
+    "year": "2020",
+    "capacity": 4,
+    "fuel": "Gasoline",
+    "consumption": 15,
+    "transmission": "Automatic",
+    "price": "500",
+    "image": "./assets/images/car-5.jpg"
   }
 ]
