@@ -20,6 +20,8 @@
             <button id="addCarButton">Add a new Car</button>
         </div>
         <div class="add-car-form-container" style="display: none;">
+            <button id="close-add-car" class="close-add-popup-button">&times;</button>
+            <h2>Add a new car</h2>
             <form id="addCarForm" class="add-car-form">
                 <label for="name">Name</label>
                 <input type="text" id="name" placeholder="Name" required>
@@ -50,7 +52,6 @@
 
                 <button type="submit">Add Car</button>
             </form>
-            <button id="close-add-car">Close</button>
         </div>
         <div class="car-tiles"></div> <!-- Container for car tiles -->
     </div>

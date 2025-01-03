@@ -145,6 +145,11 @@ async function fetchCars() {
             addCarFormContainer.style.display = 'block';
         }
     });
+    // Add event listener to the "close-add-popup-button"
+    document.getElementById('close-add-car').addEventListener('click', () => {
+        const addCarFormContainer = document.querySelector('.add-car-form-container');
+        addCarFormContainer.style.display = 'none';
+    });
 
     // Handle the form submission for adding a new car
     document.getElementById('addCarForm').addEventListener('submit', async (event) => {

@@ -105,8 +105,32 @@ h1 {
 }
 
 .add-car-form-container {
-    margin-top: 20px;
+    position: fixed;
+    background-color: #fff;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    max-height: 80vh; /* Set a maximum height */
+    width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Ensure overflow is handled */
 }
+
+.close-add-popup-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
 
 .add-car-form {
     display: flex;
