@@ -44,7 +44,7 @@ async function fetchCars() {
                             <strong>$${car.price}</strong> / month
                         </p>
                         <div>
-                            <button class="btn edit-button">Edit</button>
+                            <button class="btn edit-button"><i class="fas fa-edit"></i></button>
                             <button class="btn delete-button"><i class="fas fa-trash-alt"></i></button>
                         </div>
                     </div>

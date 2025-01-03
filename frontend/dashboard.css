@@ -217,6 +217,24 @@ h1 {
     color: #f00;
 }
 
+.btn.edit-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #007bff; /* Blue color for the edit button */
+
+}
+
+.edit-button {
+    color: #007bff; /* Blue color for the edit button */
+}
+
+.btn.edit-button:hover {
+    background: none; /* Ensure background does not change on hover */
+    color: #0056b3;
+}
+
 /* Responsive design */
 @media (max-width: 1024px) {
     /* Your responsive styles here */
