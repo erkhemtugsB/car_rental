@@ -177,6 +177,52 @@ h1 {
     align-items: center;
     justify-content: center;
 }
+
+
+.car-delete-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.delete-car-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #f00; /* Red color for the delete button */
+}
+
+.delete-car-button:hover {
+    background: none; /* Ensure background does not change on hover */
+}
+
+.btn.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #f00; /* Red color for the delete button */
+    font-size: 16px;
+}
+
+.btn.delete-button:hover {
+    background: none; /* Ensure background does not change on hover */
+    color: rgb(130, 8, 8);
+}
+
+.add-car-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f00;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    /* Your responsive styles here */
+}
+
+
 .add-car-container {
     display: flex;
     justify-content: center;
