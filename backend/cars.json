@@ -2,11 +2,11 @@
   {
     "id": 1,
     "make": "Toyota",
-    "name": "RAV4",    
+    "name": "RAV4",
     "year": "2022",
-    "capacity": 4,
+    "capacity": "5",
     "fuel": "Hybrid",
-    "consumption": 30,
+    "consumption": "30",
     "transmission": "Automatic",
     "price": "440",
     "image": "/backend/uploads/car-1.avif"

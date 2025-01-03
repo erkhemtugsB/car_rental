@@ -35,9 +35,13 @@ app.post('/cars', upload.single('image'), (req, res) => {
     const cars = loadCars();
     const newCar = {
         id: cars.length ? cars[cars.length - 1].id + 1 : 1,
+        make: req.body.make,
         name: req.body.name,
-        description: req.body.description,
         year: req.body.year,
+        capacity: req.body.capacity,
+        fuel: req.body.fuel,
+        consumption: req.body.consumption,
+        transmission: req.body.transmission,
         price: req.body.price,
         image: ''
     };
@@ -46,7 +50,7 @@ app.post('/cars', upload.single('image'), (req, res) => {
         const ext = path.extname(req.file.originalname);
         const newImagePath = path.join('uploads', `car-${newCar.id}${ext}`);
         fs.renameSync(req.file.path, path.join(__dirname, newImagePath));
-        newCar.image = `/backend/uploads/car-${newCar.id}${ext}`;
+        newCar.image = `/uploads/car-${newCar.id}${ext}`;
     }
 
     cars.push(newCar);
@@ -62,9 +66,13 @@ app.put('/cars/:id', upload.single('image'), (req, res) => {
 
     if (carIndex !== -1) {
         const car = cars[carIndex];
+        car.make = req.body.make;
         car.name = req.body.name;
-        car.description = req.body.description;
         car.year = req.body.year;
+        car.capacity = req.body.capacity;
+        car.fuel = req.body.fuel;
+        car.consumption = req.body.consumption;
+        car.transmission = req.body.transmission;
         car.price = req.body.price;
 
         if (req.file) {
