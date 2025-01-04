@@ -3,7 +3,7 @@
     "id": 1,
     "make": "Toyota",
     "name": "RAV4",
-    "year": "2022",
+    "year": "2021",
     "capacity": "5",
     "fuel": "Hybrid",
     "consumption": "30",
@@ -82,5 +82,17 @@
     "transmission": "Automatic",
     "price": "700",
     "image": "/backend/uploads/car-7.avif"
+  },
+  {
+    "id": 8,
+    "make": "Lexus",
+    "name": "LX 600",
+    "year": "2024",
+    "capacity": "7",
+    "fuel": "Gasoline",
+    "consumption": "18",
+    "transmission": "Automatic",
+    "price": "1000",
+    "image": "/backend/uploads/car-8.jpg"
   }
 ]
