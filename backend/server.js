@@ -11,6 +11,10 @@ const PORT = 3000;
 app.use(bodyParser.json({ limit: '50mb' })); // Increase the limit to handle large images
 app.use(cors());
 
+
+// Serve static files from the frontend directory
+app.use(express.static(path.join(__dirname, '../frontend')));
+
 const carsFilePath = './cars.json';
 const upload = multer({ dest: path.join(__dirname, '../frontend/assets/images/') }); // Ensure the path is correctly resolved
 
@@ -111,6 +115,11 @@ app.delete('/cars/:id', (req, res) => {
             res.status(200).send('Car deleted successfully');
         });
     });
+});
+
+// Serve index.html by default
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
 app.listen(PORT, () => {
