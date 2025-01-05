@@ -12,7 +12,7 @@ app.use(bodyParser.json({ limit: '50mb' })); // Increase the limit to handle lar
 app.use(cors());
 
 const carsFilePath = './cars.json';
-const upload = multer({ dest: path.join(__dirname, 'uploads/') }); // Ensure the path is correctly resolved
+const upload = multer({ dest: path.join(__dirname, '../frontend/assets/images/') }); // Ensure the path is correctly resolved
 
 // Load cars data
 function loadCars() {
@@ -48,9 +48,9 @@ app.post('/cars', upload.single('image'), (req, res) => {
 
     if (req.file) {
         const ext = path.extname(req.file.originalname);
-        const newImagePath = path.join('uploads', `car-${newCar.id}${ext}`);
+        const newImagePath = path.join('../frontend/assets/images', `car-${newCar.id}${ext}`);
         fs.renameSync(req.file.path, path.join(__dirname, newImagePath));
-        newCar.image = `/backend/uploads/car-${newCar.id}${ext}`;
+        newCar.image = `./assets/images/car-${newCar.id}${ext}`;
     }
 
     cars.push(newCar);
@@ -77,9 +77,9 @@ app.put('/cars/:id', upload.single('image'), (req, res) => {
 
         if (req.file) {
             const ext = path.extname(req.file.originalname);
-            const newImagePath = path.join('uploads', `car-${carId}${ext}`);
+            const newImagePath = path.join('../frontend/assets/images', `car-${carId}${ext}`);
             fs.renameSync(req.file.path, path.join(__dirname, newImagePath));
-            car.image = `/backend/uploads/car-${carId}${ext}`;
+            car.image = `./assets/images/car-${carId}${ext}`;
         }
 
         saveCars(cars);
