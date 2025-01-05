@@ -175,7 +175,7 @@
 
       <script>
         async function fetchCars() {
-            const response = await fetch('http://localhost:3000/cars');
+            const response = await fetch(`${process.env.SERVER_URL}/cars`);
             const cars = await response.json();
             const carList = document.getElementById('featured-car-list');
             carList.innerHTML = ''; // Clear existing content
