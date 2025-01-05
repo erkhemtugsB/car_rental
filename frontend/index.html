@@ -175,7 +175,7 @@
 
       <script>
         async function fetchCars() {
-            const response = await fetch(`${process.env.SERVER_URL}/cars`);
+            const response = await fetch(`https://car-rental-3teo.onrender.com/`);
             const cars = await response.json();
             const carList = document.getElementById('featured-car-list');
             carList.innerHTML = ''; // Clear existing content
