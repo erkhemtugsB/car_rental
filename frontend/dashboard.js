@@ -164,7 +164,11 @@ async function fetchCars() {
                 });
 
                 if (response.ok) {
-                    alert('Car deleted successfully');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Deleted!',
+                        text: 'Car deleted successfully'
+                    });                  
                     fetchCars(); // Refresh the car list
                 } else {
                     const errorText = await response.text();
@@ -173,7 +177,11 @@ async function fetchCars() {
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('Failed to delete car');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Failed to delete car',
+                    text: result.message
+                });
             }
         });
     });
