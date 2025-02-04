@@ -54,7 +54,7 @@ async function fetchCars() {
     document.querySelectorAll('.btn').forEach(button => {
         button.addEventListener('click', function() {
             const carId = this.getAttribute('data-car-id');
-            window.location.href = `car.html?id=${carId}`;
+            window.location.href = `cars/car.html?id=${carId}`;
         });
     });
 }
