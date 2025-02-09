@@ -1,20 +1,5 @@
 [
   {
-    "id": 1,
-    "make": "Toyota",
-    "name": "RAV4",
-    "year": "2021",
-    "capacity": "5",
-    "fuel": "Hybrid",
-    "consumption": "30",
-    "transmission": "Automatic",
-    "price": "440",
-    "image": [
-      "./assets/images/car-1.avif",
-      "./assets/images/car-2.jpg"
-    ]
-  },
-  {
     "id": 5,
     "make": "Ford",
     "name": "Mustang",
@@ -40,6 +25,24 @@
     "price": "900",
     "image": [
       "./assets/images/car-10.jpg"
+    ]
+  },
+  {
+    "id": 11,
+    "make": "Lexus",
+    "name": "LX600",
+    "year": "2024",
+    "capacity": "7",
+    "fuel": "Gasoline",
+    "consumption": "10",
+    "transmission": "Automatic",
+    "price": "100,000",
+    "image": [
+      "./assets/images/car-11-b27e181f333ce6ad3c6d0f49e3e7b312.jpg",
+      "./assets/images/car-11-089de76c7efbdb0fecb9cadabbc09472.jpg",
+      "./assets/images/car-11-826f21da1c5af7917902efdaec3778ce.jpg",
+      "./assets/images/car-11-051196ee25104a4818baade06b0fa303.jpg",
+      "./assets/images/car-11-86b19f32cab60a9ac6e5d0b53bcd9725.jpg"
     ]
   }
 ]

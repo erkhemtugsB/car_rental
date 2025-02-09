@@ -77,7 +77,7 @@ async function fetchCars() {
                     <input type="text" class="price" value="${car.price}" required>
                     
                     <label for="image">Image</label>
-                    <input type="file" class="image-input">
+                    <input type="file" class="image-input" requierd multiple>
                     
                     <button type="submit" class="btn save-button">Save</button>
                 </form>

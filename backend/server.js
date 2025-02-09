@@ -65,7 +65,7 @@ app.post('/cars', upload.array('images', 10), (req, res) => {
 });
 
 // Update a car
-app.put('/cars/:id', upload.single('image'), (req, res) => {
+app.put('/cars/:id', upload.array('images', 10), (req, res) => {
     const cars = loadCars();
     const carId = parseInt(req.params.id, 10);
     const carIndex = cars.findIndex(car => car.id === carId);
@@ -81,11 +81,22 @@ app.put('/cars/:id', upload.single('image'), (req, res) => {
         car.transmission = req.body.transmission;
         car.price = req.body.price;
 
-        if (req.file) {
-            const ext = path.extname(req.file.originalname);
-            const newImagePath = path.join('../frontend/assets/images', `car-${carId}${ext}`);
-            fs.renameSync(req.file.path, path.join(__dirname, newImagePath));
-            car.image = `./assets/images/car-${carId}${ext}`;
+        // Clear the existing image array
+        car.image = [];
+
+        if (req.files) {
+            req.files.forEach(file => {
+                const ext = path.extname(file.originalname);
+                const newImagePath = path.join('../frontend/assets/images', `car-${carId}-${file.filename}${ext}`);
+                const newImageFullPath = path.join(__dirname, newImagePath);
+                fs.rename(file.path, newImageFullPath, (err) => {
+                    if (err) {
+                        console.error('Error moving file:', err);
+                        return res.status(500).send('Failed to save changes');
+                    }
+                    car.image.push(`./assets/images/car-${carId}-${file.filename}${ext}`);
+                });
+            });
         }
 
         saveCars(cars);
