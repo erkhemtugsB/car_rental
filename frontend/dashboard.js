@@ -122,8 +122,11 @@ async function fetchCars() {
             formData.append('consumption', updatedCar.consumption);
             formData.append('transmission', updatedCar.transmission);
             formData.append('price', updatedCar.price);
-            if (inputs[8].files[0]) {
-                formData.append('image', inputs[8].files[0]);
+            const fileInput = inputs[8];
+            if (fileInput.files.length > 0) {
+                for (let i = 0; i < fileInput.files.length; i++) {
+                    formData.append('images', fileInput.files[i]);
+                }
             }
 
             const response = await fetch(`http://localhost:3000/cars/${car.id}`, {
@@ -210,8 +213,12 @@ async function fetchCars() {
         formData.append('consumption', newCar.consumption);
         formData.append('transmission', newCar.transmission);
         formData.append('price', newCar.price);
-        if (inputs[8].files[0]) {
-            formData.append('image', inputs[8].files[0]);
+
+        const fileInput = inputs[8];
+        if (fileInput.files.length > 0) {
+            for (let i = 0; i < fileInput.files.length; i++) {
+                formData.append('images', fileInput.files[i]);
+            }
         }
 
         const response = await fetch('http://localhost:3000/cars', {
