@@ -37,7 +37,7 @@ async function fetchCars() {
                             </ul>
                             <div class="card-price-wrapper">
                                 <p class="card-price">
-                                    <strong>$${car.price}</strong> / month
+                                    <strong>$${car.price}</strong>
                                 </p>
                                 <button class="btn fav-btn" aria-label="Add to favourite list">
                                     <ion-icon name="heart-outline"></ion-icon>
