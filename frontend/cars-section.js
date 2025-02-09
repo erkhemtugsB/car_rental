@@ -42,7 +42,7 @@ async function fetchCars() {
                                 <button class="btn fav-btn" aria-label="Add to favourite list">
                                     <ion-icon name="heart-outline"></ion-icon>
                                 </button>
-                                <button class="btn" data-car-id="${car.id}">Rent now</button>
+                                <button class="btn" data-car-id="${car.id}">View More</button>
                             </div>
                         </div>
                     </div>
