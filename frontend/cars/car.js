@@ -16,7 +16,7 @@ async function fetchCarDetails() {
                         <data class="year" value="${car.year}">${car.year}</data>
                     </div>
                 <figure class="card-banner">
-                    <img src=".${car.image}" alt="${car.make} ${car.name} ${car.year}" loading="lazy" width="440" height="300" class="w-100">
+                    <img src=".${car.image[0]}" alt="${car.make} ${car.name} ${car.year}" loading="lazy" width="440" height="300" class="w-100">
                 </figure>
   
   <div class="border-t border-gray-100 p-10">
