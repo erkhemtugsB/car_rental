@@ -9,43 +9,10 @@
     "consumption": "30",
     "transmission": "Automatic",
     "price": "440",
-    "image": ["./assets/images/car-1.avif"]
-  },
-  {
-    "id": 2,
-    "make": "BMW",
-    "name": "3 Series",
-    "year": "2019",
-    "capacity": "5",
-    "fuel": "Gasoline",
-    "consumption": "20",
-    "transmission": "Automatic",
-    "price": "350",
-    "image": ["./assets/images/car-2.jpg"]
-  },
-  {
-    "id": 3,
-    "make": "Volkswagen",
-    "name": "T-Cross",
-    "year": "2020",
-    "capacity": 4,
-    "fuel": "Gasoline",
-    "consumption": 24,
-    "transmission": "Automatic",
-    "price": "300",
-    "image": ["./assets/images/car-3.jpg"]
-  },
-  {
-    "id": 4,
-    "make": "Cadillac",
-    "name": "Escalade",
-    "year": "2020",
-    "capacity": 7,
-    "fuel": "Gasoline",
-    "consumption": 15,
-    "transmission": "Manual",
-    "price": "400",
-    "image": ["./assets/images/car-4.jpg"]
+    "image": [
+      "./assets/images/car-1.avif",
+      "./assets/images/car-2.jpg"
+    ]
   },
   {
     "id": 5,
@@ -57,31 +24,9 @@
     "consumption": "25",
     "transmission": "Automatic",
     "price": "500",
-    "image": ["./assets/images/car-5.avif"]
-  },
-  {
-    "id": 6,
-    "make": "Toyota",
-    "name": "Land Cruiser 200",
-    "year": "2020",
-    "capacity": "7",
-    "fuel": "Gasoline",
-    "consumption": "12",
-    "transmission": "Automatic",
-    "price": "550",
-    "image": ["./assets/images/car-6.webp"]
-  },
-  {
-    "id": 8,
-    "make": "Lexus",
-    "name": "LX 600",
-    "year": "2024",
-    "capacity": "7",
-    "fuel": "Gasoline",
-    "consumption": "18",
-    "transmission": "Automatic",
-    "price": "1000",
-    "image": ["./assets/images/car-8.jpg"]
+    "image": [
+      "./assets/images/car-5.avif"
+    ]
   },
   {
     "id": 10,
@@ -93,6 +38,8 @@
     "consumption": "19",
     "transmission": "Automatic",
     "price": "900",
-    "image": ["./assets/images/car-10.jpg"]
+    "image": [
+      "./assets/images/car-10.jpg"
+    ]
   }
 ]
