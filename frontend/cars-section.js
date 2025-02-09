@@ -8,7 +8,7 @@ async function fetchCars() {
         carItem.innerHTML = `
                     <div class="featured-car-card">
                         <figure class="card-banner">
-                            <img src="${car.image}" alt="${car.make} ${car.name} ${car.year}" loading="lazy" width="440" height="300" class="w-100">
+                            <img src="${car.image[0]}" alt="${car.make} ${car.name} ${car.year}" loading="lazy" width="440" height="300" class="w-100">
                         </figure>
                         <div class="card-content">
                             <div class="card-title-wrapper">
