@@ -6,7 +6,7 @@ const multer = require('multer');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json({ limit: '50mb' })); // Increase the limit to handle large images
 app.use(cors());
@@ -17,6 +17,17 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 
 const carsFilePath = './cars.json';
 const upload = multer({ dest: 'uploads/' }); // Ensure the path is correctly resolved
+
+// Serve static files from the frontend directory
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+// Serve static files from the frontend assets/images directory
+app.use('/assets/images', express.static(path.join(__dirname, '../frontend/assets/images')));
+
+// Serve index.html by default
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
 
 // Load cars data
 function loadCars() {

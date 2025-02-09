@@ -4,7 +4,7 @@ if (!localStorage.getItem('authToken')) {
 }
 
 async function fetchCars() {
-    const response = await fetch('http://localhost:3000/cars');
+    const response = await fetch('https://car-rental-3teo.onrender.com/cars');
     const cars = await response.json();
     const carTilesContainer = document.querySelector('.car-tiles');
     carTilesContainer.innerHTML = ''; // Clear existing content
@@ -129,7 +129,7 @@ async function fetchCars() {
                 }
             }
 
-            const response = await fetch(`http://localhost:3000/cars/${car.id}`, {
+            const response = await fetch(`https://car-rental-3teo.onrender.com/cars/${car.id}`, {
                 method: 'PUT',
                 body: formData
             });
@@ -162,7 +162,7 @@ async function fetchCars() {
         button.addEventListener('click', async (event) => {
             const carId = event.target.closest('button').getAttribute('data-id');
             try {
-                const response = await fetch(`http://localhost:3000/cars/${carId}`, {
+                const response = await fetch(`https://car-rental-3teo.onrender.com/cars/${carId}`, {
                     method: 'DELETE'
                 });
 
@@ -221,7 +221,7 @@ async function fetchCars() {
             }
         }
 
-        const response = await fetch('http://localhost:3000/cars', {
+        const response = await fetch('https://car-rental-3teo.onrender.com/cars', {
             method: 'POST',
             body: formData
         });

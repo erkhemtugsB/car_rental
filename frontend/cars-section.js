@@ -1,5 +1,5 @@
 async function fetchCars() {
-    const response = await fetch('http://localhost:3000/cars');
+    const response = await fetch('https://car-rental-3teo.onrender.com/cars');
     const cars = await response.json();
     const carList = document.getElementById('featured-car-list');
     carList.innerHTML = ''; // Clear existing content
@@ -42,12 +42,20 @@ async function fetchCars() {
                                 <button class="btn fav-btn" aria-label="Add to favourite list">
                                     <ion-icon name="heart-outline"></ion-icon>
                                 </button>
-                                <button class="btn">Rent now</button>
+                                <button class="btn" data-car-id="${car.id}">Rent now</button>
                             </div>
                         </div>
                     </div>
                 `;
         carList.appendChild(carItem);
+    });
+
+    // Add event listeners to "Rent now" buttons
+    document.querySelectorAll('.btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const carId = this.getAttribute('data-car-id');
+            window.location.href = `cars/car.html?id=${carId}`;
+        });
     });
 }
 

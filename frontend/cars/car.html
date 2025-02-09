@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ridex - Car Details</title>
+
+  <!--- favicon-->
+  <link rel="shortcut icon" href="../favicon.svg" type="image/svg+xml">
+
+  <!--custom css link-->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="car.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+  <!--google font link-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Open+Sans&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+  <!--- #HEADER-->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <div class="overlay" data-overlay></div>
+
+      <a href="../index.html" class="logo">
+        <img src="../assets/images/logo.svg" alt="Ridex logo">
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li>
+            <a href="../index.html" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link" data-nav-link>About us</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link" data-nav-link>Our cars</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link" data-nav-link>Services</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link" data-nav-link>Contact</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+
+        <button class="btn btn-primary">
+          <ion-icon name="car-outline" aria-hidden="true"></ion-icon>
+
+          <span>Rent now</span>
+        </button>
+
+        <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+          <ion-icon name="menu-outline" aria-hidden="true" class="menu-icon"></ion-icon>
+          <ion-icon name="close-outline" aria-hidden="true" class="close-icon"></ion-icon>
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!--- #MAIN-->
+
+  <main>
+    <section class="car-details-section">
+      <div class="container">
+        <div id="car-details-container"></div>
+      </div>
+    </section>
+  </main>
+
+  <!--- #FOOTER-->
+
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-top">
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="../assets/images/logo.svg" alt="Ridex logo">
+          </a>
+
+          <p class="footer-text">
+            We offers a big range of vehicles for all your driving needs. We have the perfect car to meet your needs.
+          </p>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Company</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">About us</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Pricing plans</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Our cars</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Contact us</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Support</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">FAQs</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Privacy policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Terms of use</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Site map</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Social</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Facebook</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Twitter</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Instagram</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">LinkedIn</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <ul class="footer-bottom-list">
+
+          <li>
+            <a href="#" class="footer-bottom-link">Privacy policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link">Terms of use</a>
+          </li>
+
+        </ul>
+
+        <p class="copyright">
+          &copy; 2022 <a href="#">Ridex</a>. All rights reserved
+        </p>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!--- custom js link-->
+  <script src="../assets/js/script.js"></script>
+  <script src="car.js"></script>
+
+  <!--- ionicon link-->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
