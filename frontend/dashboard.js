@@ -14,7 +14,7 @@ async function fetchCars() {
         carTile.innerHTML = `
             <div class="featured-car-card">
                 <figure class="card-banner">
-                    <img src="${car.image}" alt="${car.make} ${car.name} ${car.year}" loading="lazy" width="150" height="100" class="w-100">
+                    <img src="${car.image[0]}" alt="${car.make} ${car.name} ${car.year}" loading="lazy" width="150" height="100" class="w-100">
                 </figure>
                 <div class="card-content">
                     <div class="card-title-wrapper">
@@ -77,7 +77,7 @@ async function fetchCars() {
                     <input type="text" class="price" value="${car.price}" required>
                     
                     <label for="image">Image</label>
-                    <input type="file" class="image-input">
+                    <input type="file" class="image-input" requierd multiple>
                     
                     <button type="submit" class="btn save-button">Save</button>
                 </form>
@@ -122,8 +122,11 @@ async function fetchCars() {
             formData.append('consumption', updatedCar.consumption);
             formData.append('transmission', updatedCar.transmission);
             formData.append('price', updatedCar.price);
-            if (inputs[8].files[0]) {
-                formData.append('image', inputs[8].files[0]);
+            const fileInput = inputs[8];
+            if (fileInput.files.length > 0) {
+                for (let i = 0; i < fileInput.files.length; i++) {
+                    formData.append('images', fileInput.files[i]);
+                }
             }
 
             const response = await fetch(`https://car-rental-3teo.onrender.com/cars/${car.id}`, {
@@ -210,8 +213,12 @@ async function fetchCars() {
         formData.append('consumption', newCar.consumption);
         formData.append('transmission', newCar.transmission);
         formData.append('price', newCar.price);
-        if (inputs[8].files[0]) {
-            formData.append('image', inputs[8].files[0]);
+
+        const fileInput = inputs[8];
+        if (fileInput.files.length > 0) {
+            for (let i = 0; i < fileInput.files.length; i++) {
+                formData.append('images', fileInput.files[i]);
+            }
         }
 
         const response = await fetch('https://car-rental-3teo.onrender.com/cars', {

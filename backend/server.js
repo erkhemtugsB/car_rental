@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, '../frontend')));
 
 const carsFilePath = './cars.json';
-const upload = multer({ dest: path.join(__dirname, '../frontend/assets/images/') }); // Ensure the path is correctly resolved
+const upload = multer({ dest: 'uploads/' }); // Ensure the path is correctly resolved
 
 // Serve static files from the frontend directory
 app.use(express.static(path.join(__dirname, '../frontend')));
@@ -46,7 +46,7 @@ app.get('/cars', (req, res) => {
 });
 
 // Add a new car
-app.post('/cars', upload.single('image'), (req, res) => {
+app.post('/cars', upload.array('images', 10), (req, res) => {
     const cars = loadCars();
     const newCar = {
         id: cars.length ? cars[cars.length - 1].id + 1 : 1,
@@ -58,14 +58,16 @@ app.post('/cars', upload.single('image'), (req, res) => {
         consumption: req.body.consumption,
         transmission: req.body.transmission,
         price: req.body.price,
-        image: ''
+        image: []
     };
 
-    if (req.file) {
-        const ext = path.extname(req.file.originalname);
-        const newImagePath = path.join('../frontend/assets/images', `car-${newCar.id}${ext}`);
-        fs.renameSync(req.file.path, path.join(__dirname, newImagePath));
-        newCar.image = `./assets/images/car-${newCar.id}${ext}`;
+    if (req.files) {
+        req.files.forEach(file => {
+            const ext = path.extname(file.originalname);
+            const newImagePath = path.join('../frontend/assets/images', `car-${newCar.id}-${file.filename}${ext}`);
+            fs.renameSync(file.path, path.join(__dirname, newImagePath));
+            newCar.image.push(`./assets/images/car-${newCar.id}-${file.filename}${ext}`);
+        });
     }
 
     cars.push(newCar);
@@ -74,7 +76,7 @@ app.post('/cars', upload.single('image'), (req, res) => {
 });
 
 // Update a car
-app.put('/cars/:id', upload.single('image'), (req, res) => {
+app.put('/cars/:id', upload.array('images', 10), (req, res) => {
     const cars = loadCars();
     const carId = parseInt(req.params.id, 10);
     const carIndex = cars.findIndex(car => car.id === carId);
@@ -90,11 +92,22 @@ app.put('/cars/:id', upload.single('image'), (req, res) => {
         car.transmission = req.body.transmission;
         car.price = req.body.price;
 
-        if (req.file) {
-            const ext = path.extname(req.file.originalname);
-            const newImagePath = path.join('../frontend/assets/images', `car-${carId}${ext}`);
-            fs.renameSync(req.file.path, path.join(__dirname, newImagePath));
-            car.image = `./assets/images/car-${carId}${ext}`;
+        // Clear the existing image array
+        car.image = [];
+
+        if (req.files) {
+            req.files.forEach(file => {
+                const ext = path.extname(file.originalname);
+                const newImagePath = path.join('../frontend/assets/images', `car-${carId}-${file.filename}${ext}`);
+                const newImageFullPath = path.join(__dirname, newImagePath);
+                fs.rename(file.path, newImageFullPath, (err) => {
+                    if (err) {
+                        console.error('Error moving file:', err);
+                        return res.status(500).send('Failed to save changes');
+                    }
+                    car.image.push(`./assets/images/car-${carId}-${file.filename}${ext}`);
+                });
+            });
         }
 
         saveCars(cars);
