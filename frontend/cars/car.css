@@ -68,3 +68,13 @@
 .btn:hover {
     opacity: 0.8;
 }
+
+/* car previews */
+.image-preview-row {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Optional: Adds space between images */
+    align-items: center;
+    width: 15%;
+  }

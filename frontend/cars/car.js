@@ -15,9 +15,34 @@ async function fetchCarDetails() {
                         <h2 class="h3 card-title">${car.make} ${car.name}</h2>
                         <data class="year" value="${car.year}">${car.year}</data>
                     </div>
-                <figure class="card-banner">
-                    <img src=".${car.image[0]}" alt="${car.make} ${car.name} ${car.year}" loading="lazy" width="440" height="300" class="w-100">
-                </figure>
+                  
+                <!-- Car carousel -->
+
+                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    ${car.image.map((img, index) => `
+                      <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                        <img src=".${img}" alt="${car.make} ${car.name} ${car.year}" loading="lazy" width="440" height="300" class="w-100">
+                      </div>
+                    `).join('')}
+                  </div>
+                  ${car.image.length > 1 ? `
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  </button>
+                  ` : ''}
+                </div>
+                <div>
+                  <div class="image-preview-row">
+                    ${car.image.map(img => `
+                      <img src=".${img}" alt="${car.make} ${car.name} ${car.year}" loading="lazy" width="100" height="75" class="preview-img">
+                    `).join('')}
+                  </div>
+                </div>
+
 
                 <div class="border-t border-gray-100 p-10">
                   <dl class="divide-y divide-gray-100">
