@@ -8,7 +8,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     // add new user accounts here
     const accounts = [
         { username: 'test', password: 'test' },
-        { username: 'user', password: 'password' },
+        { username: 'mngauto', password: '1234' },
         { username: 'erhemee', password: '123456' }
     ];
 
